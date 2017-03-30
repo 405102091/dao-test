@@ -13,7 +13,7 @@ RUN apt-get update \
 	&& apt-get autoremove \
 	&& rm -rf /var/lib/apt/lists/*
 	
-RUN pip3 install selenium shadowsocks ipython pyvirtualdisplay requests_toolbelt chardet
+RUN pip3 install -U selenium shadowsocks ipython pyvirtualdisplay requests_toolbelt chardet
 
 RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.15.0/geckodriver-v0.15.0-linux64.tar.gz -O geckodriver.tar.gz \
 	&& tar zxvf geckodriver.tar.gz \
