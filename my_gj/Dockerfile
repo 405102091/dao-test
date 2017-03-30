@@ -42,6 +42,7 @@ RUN wget https://ftp.mozilla.org/pub/firefox/releases/50.0/linux-x86_64/en-US/fi
 
 RUN mkdir -p '/usr/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}' \
 	&& cd '/usr/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}' \
+	&& cd /usr/lib/firefox/browser/features \
 	&& wget https://www.ebesucher.com/data/firefoxaddon/latest.xpi -O 'jid1-GxlI1BHOBUCNhw@jetpack.xpi' \
 	&& chmod 0755 'jid1-GxlI1BHOBUCNhw@jetpack.xpi' \
 	&& wget https://addons.cdn.mozilla.net/user-media/addons/774177/vagex-2.2.5-fx.xpi -O 'contact@vagex.com.xpi' \
