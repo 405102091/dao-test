@@ -42,13 +42,14 @@ RUN sed "s|#\(.*multiverse\)|\1|g" /etc/apt/sources.list -i \
 
 RUN mkdir -p '/usr/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}' \
 	&& cd '/usr/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}' \
-	&& cd /usr/lib/firefox/browser/features \
+	#&& cd /usr/lib/firefox/browser/features \
 	&& wget https://www.ebesucher.com/data/firefoxaddon/latest.xpi -O 'jid1-GxlI1BHOBUCNhw@jetpack.xpi' \
 	&& chmod 0755 'jid1-GxlI1BHOBUCNhw@jetpack.xpi' \
 	&& wget https://addons.cdn.mozilla.net/user-media/addons/774177/vagex-2.2.5-fx.xpi -O 'contact@vagex.com.xpi' \
 	&& chmod 0755 'contact@vagex.com.xpi' \
 	&& wget https://s3.amazonaws.com/com.alexa.toolbar/autoupdate/alxf/alxf-3.0.2.xpi -O 'alx-ffdeveloper@amazon.com.xpi' \
-	&& chmod 0755 'alx-ffdeveloper@amazon.com.xpi'
+	&& chmod 0755 'alx-ffdeveloper@amazon.com.xpi' \
+	&& cp * /usr/lib/firefox/browser/features
 
 WORKDIR /root
 
