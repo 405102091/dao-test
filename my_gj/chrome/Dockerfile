@@ -53,6 +53,7 @@ WORKDIR /root
 ADD startup.sh ./
 ADD supervisord.conf ./
 ADD passwd ./
+ADD ameblocal.py ./
 
 RUN chmod 0600 passwd \
 	&& chmod +x startup.sh
