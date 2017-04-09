@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 # desktop env
 RUN apt-get update \
 	&& apt-get install -y supervisor \
-		openssh-server vim \
+		openssh-server vim tmux \
 		xfce4 xfce4-goodies \
 		x11vnc xvfb \
 		python3-pip \
