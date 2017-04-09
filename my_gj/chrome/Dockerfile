@@ -9,24 +9,21 @@ RUN apt-get update \
 		xfce4 xfce4-goodies \
 		x11vnc xvfb \
 		python3-pip \
+		libappindicator1 libdbusmenu-glib4 libdbusmenu-gtk4 libindicator7 libpango1.0 gdebi-core \
+	&& wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+	&& gdebi -n google-chrome-stable_current_amd64.deb \
+	&& rm google-chrome-stable_current_amd64.deb \
 	&& apt-get autoclean \
 	&& apt-get autoremove \
 	&& rm -rf /var/lib/apt/lists/*
 	
 RUN pip3 install -U pip && pip install -U selenium shadowsocks ipython pyvirtualdisplay requests_toolbelt chardet
 
-RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.15.0/geckodriver-v0.15.0-linux64.tar.gz -O geckodriver.tar.gz \
-	&& tar zxvf geckodriver.tar.gz \
-	&& mv geckodriver /usr/bin
-	
-# firefox	
-RUN apt-get update \		
-	&& apt-get install -y firefox \		
-	&& apt-get autoclean \		
-	&& apt-get autoremove \		
-	&& rm -rf /var/lib/apt/lists/*
+RUN wget https://chromedriver.storage.googleapis.com/2.29/chromedriver_linux64.zip \
+	&& unzip chromedriver_linux64.zip \
+	&& mv chromedriver /usr/bin
 
-# firefox flash
+# flash
 RUN sed "s|#\(.*multiverse\)|\1|g" /etc/apt/sources.list -i \
 	&& apt-get update \
 	&& apt-get install -y flashplugin-installer \
