@@ -34,6 +34,8 @@ oskillproc(osname)
 import uuid
 tmpnode = uuid.getnode()
 macasname = uuid.UUID(int = tmpnode).hex[-12:]
+macasname = str(uuid.uuid1())
+
 while 1:
     try:
         nowtime=time.time()
