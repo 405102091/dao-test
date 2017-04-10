@@ -12,15 +12,15 @@ import platform
 
 def oskillproc(osname):
     if osname=='Windows':
-        os.system('taskkill /F /IM google-chrome.exe')
+        os.system('taskkill /F /IM google/chrome.exe')
     else:
-        os.system('pkill google-chrome')
+        os.system('pkill google/chrome')
         
 def oscheckproc(osname):
     if osname=='Windows':
-        tmpstr=os.popen('tasklist | find "google-chrome"').read()
+        tmpstr=os.popen('tasklist | find "google/chrome"').read()
     else:
-        tmpstr=os.popen('ps aux | grep google-chrome | grep -v grep').read()
+        tmpstr=os.popen('ps aux | grep google/chrome | grep -v grep').read()
     return tmpstr==''
 
 osname=platform.system()
